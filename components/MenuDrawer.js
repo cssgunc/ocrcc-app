@@ -43,6 +43,7 @@ export default class MenuDrawer extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.bottomLinks}>
+                    <Text style={styles.linkTitle}> Pages </Text>
                     {this.navLink('HomeScreen', 'Home')}
                     {this.navLink('LinksScreen', 'Links')}
                     {this.navLink('SettingsScreen', 'Settings')}
@@ -67,17 +68,22 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 450
     },
+    linkTitle: {
+        fontSize: 24,
+        color: 'white',
+        padding: 6,
+    },
     link: {
         flex: 1,
         fontSize: 20,
         padding: 6,
-        paddingLeft: 14,
+        paddingLeft: 20,
         margin: 5,
         textAlign: 'left',
         color: 'white'
     },
     pageLinks: { 
-        flex: 1,
+        flex: .2,
         // textColor: 'white' 
     },
     closeIcon: { 
