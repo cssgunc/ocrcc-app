@@ -1,114 +1,126 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React, { Component } from 'react';
+//import react in our code.
+import { View, Image, TouchableOpacity, Text, Dimensions } from 'react-native';
+// import all basic components
 
-import React, {Fragment} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+//For React Navigation 4+
+import { createAppContainer } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
 
-const App = () => {
-  return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
-  );
-};
+import MenuDrawer from './components/MenuDrawer'
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+import HomeScreen from './screens/HomeScreen';
+import LinksScreen from './screens/LinksScreen';
+import SettingsScreen from './screens/SettingsSC';
+class NavigationDrawerStructure extends Component {
+
+  //Structure for the navigatin Drawer
+  toggleDrawer = () => {
+    //Props to open/close the drawer
+    this.props.navigationProps.toggleDrawer();
+  };
+  render() {
+    return (
+      <View style={{ flexDirection: 'row' }}>
+        <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
+          <Icon
+            name="md-menu"
+            color="#fff"
+            size={32}
+            style={{ paddingLeft: 20 }}
+          ></Icon>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
+
+let appTitle = ""
+
+const HomeScreen_StackNavigator = createStackNavigator({
+  //All the screen from the HomeScreen will be indexed here
+  First: {
+    screen: HomeScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: appTitle,
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#008c99',
+
+      },
+      headerTintColor: '#fff',
+    }),
   },
 });
 
-export default App;
+const LinksScreen_StackNavigator = createStackNavigator({
+  //All the screen from the LinksScreen will be indexed here
+  Second: {
+    screen: LinksScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: appTitle,
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#008c99',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const SettingsScreen_StackNavigator = createStackNavigator({
+  //All the screen from the SettingsScreen will be indexed here
+  Third: {
+    screen: SettingsScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: appTitle,
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#008c99',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const WIDTH = Dimensions.get('window').width;
+
+const DrawerConfig = {
+  drawerWidth: WIDTH * 0.83,
+  contentComponent: ({ navigation }) => {
+    return (<MenuDrawer navigation={navigation}/>)
+  }
+}
+
+const DrawerNavigator = createDrawerNavigator(
+  {
+    //Drawer Optons and indexing
+    HomeScreen: {
+      //Title
+      screen: HomeScreen_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Home',
+      },
+    },
+    LinksScreen: {
+      //Title
+      screen: LinksScreen_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Links',
+      },
+    },
+    SettingsScreen: {
+      //Title
+      screen: SettingsScreen_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Settings',
+      },
+    },
+  },
+  DrawerConfig
+);
+
+export default createAppContainer(DrawerNavigator);
