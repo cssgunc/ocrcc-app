@@ -17,54 +17,80 @@ import {
 } from 'react-native';
 
 import {
-  Header,
   LearnMoreLinks,
   Colors,
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+const Form = t.form.Form;
+
+import t from 'tcomb-form-native';
+
+var contactOption = t.enums({
+  Pt: 'Phone (Text)',
+  Pc: 'Phone (Call)',
+  E: 'Email'
+});
+
+
+const User = t.struct({
+  fullName: t.String,
+  email: t.String,
+  phoneNumber: t.String,
+  preferredContactMethod: contactOption,
+  safety: t.Boolean,
+  safety2: t.Boolean,
+  test: t.String
+});
+
+var options = {
+  auto: 'placeholders',
+  fields: {
+    safety: {
+      label: "Is it safe for us to identify ourselves as OCRCC on the phone?",
+    },
+    safety2: {
+      label: "Is it safe for us to leave a message?",
+    },
+    preferredContactMethod: {
+      isCollapsed: false,
+    },
+    fullName: {
+      placeholder: 'Full Name',
+    },
+    email: {
+      placeholder: 'Email',
+    },
+    phoneNumber: {
+      placeholder: 'Phone Number',
+    },
+    test: {
+      multiline: true,
+      placeholder: 'What would you like to discuss?',
+      type: "textArea",
+      attrs: {
+        rows: 20
+      }
+    }
+  }
+}
+
 const App = () => {
   return (
+
     <Fragment>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
+              <View style={styles.container}>
+                      <Form type={User} options={options}/>
+               </View>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
           </View>
         </ScrollView>
       </SafeAreaView>
