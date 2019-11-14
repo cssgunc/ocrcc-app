@@ -128,28 +128,34 @@
 
 
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Vibration } from 'react-native';
 import PinView from 'react-native-pin-view';
+import { loadOptions } from '@babel/core';
 
 type Props = {};
+let pin = "";
 export default class Master extends Component<Props> {
   constructor(props) {
     super(props);
     this.onComplete = this.onComplete.bind(this);
     this.state = {
-        pin: "896745"
+        pin: "8967"
+        // should get it either from phone pin or let user set pin when sign up the app
     };
   }
   onComplete(inputtedPin, clear) {
-    if (val !== this.state.pin) {
+    if (pin !== this.state.pin) {
+      Vibration.vibrate(1000);
+      alert("Wrong password!");
+      pin = "";
       clear();
     } else {
-      console.log("Pin is correct");
+      alert("Success");
+      loadLanding();  // to the app landing page
     }
   }
   onPress(inputtedPin, clear, pressed) {
-    console.log("Pressed: "+ pressed);
-    console.log("inputtedPin: "+ inputtedPin);
+    pin += pressed;
     // clear();
   }
   render() {
@@ -163,7 +169,6 @@ export default class Master extends Component<Props> {
         onPress={this.onPress}
         onComplete={this.onComplete}
         pinLength={this.state.pin.length}
-        // pinLength={6} // You can also use like that.
         />
       </View>
     );
