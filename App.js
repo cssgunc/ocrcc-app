@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import react in our code.
-import { View, Image, TouchableOpacity, Text, Dimensions } from 'react-native';
+import { View, Image, TouchableOpacity, Text, Dimensions, Button } from 'react-native';
 // import all basic components
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -15,6 +15,7 @@ import MenuDrawer from './components/MenuDrawer'
 import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
 import SettingsScreen from './screens/SettingsSC';
+import styling from './components/functions';
 class NavigationDrawerStructure extends Component {
 
   //Structure for the navigatin Drawer
@@ -47,9 +48,20 @@ const HomeScreen_StackNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => styling.abc()}>
+            <Icon
+              name="md-settings"
+              color="#fff"
+              size={32}
+              style={{ paddingRight: 20 }}
+              >
+            </Icon>
+        </TouchableOpacity>
+      ),
       headerStyle: {
         backgroundColor: '#008c99',
-
       },
       headerTintColor: '#fff',
     }),
@@ -63,6 +75,18 @@ const LinksScreen_StackNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => styling.abc()}>
+            <Icon
+              name="md-settings"
+              color="#fff"
+              size={32}
+              style={{ paddingRight: 20 }}
+              >
+            </Icon>
+        </TouchableOpacity>
+      ),
       headerStyle: {
         backgroundColor: '#008c99',
       },
@@ -78,6 +102,18 @@ const SettingsScreen_StackNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => styling.abc()}>
+            <Icon
+              name="md-settings"
+              color="#fff"
+              size={32}
+              style={{ paddingRight: 20 }}
+              >
+            </Icon>
+        </TouchableOpacity>
+      ),
       headerStyle: {
         backgroundColor: '#008c99',
       },
@@ -91,7 +127,7 @@ const WIDTH = Dimensions.get('window').width;
 const DrawerConfig = {
   drawerWidth: WIDTH * 0.83,
   contentComponent: ({ navigation }) => {
-    return (<MenuDrawer navigation={navigation}/>)
+    return (<MenuDrawer navigation={navigation} />)
   }
 }
 
@@ -119,6 +155,7 @@ const DrawerNavigator = createDrawerNavigator(
         drawerLabel: 'Settings',
       },
     },
+
   },
   DrawerConfig
 );

@@ -14,7 +14,12 @@ import {
   View,
   Text,
   StatusBar,
+  Button
 } from 'react-native';
+
+import styling from '../components/functions'
+var Consts = require('../components/consts.js');
+// import Consts from '../components/consts'
 
 export default class HomeScreen extends React.Component {
 
@@ -29,6 +34,8 @@ export default class HomeScreen extends React.Component {
   }
 };
 
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -37,7 +44,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: 30,
+    fontSize: Consts.num,
   },
   headerStyle: {
     // bottom: auto,
