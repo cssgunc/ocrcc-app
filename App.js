@@ -15,6 +15,8 @@ import MenuDrawer from './components/MenuDrawer'
 import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
 import SettingsScreen from './screens/SettingsSC';
+import GetHelpScreen from './screens/GetHelpScreen';
+
 class NavigationDrawerStructure extends Component {
 
   //Structure for the navigatin Drawer
@@ -86,6 +88,21 @@ const SettingsScreen_StackNavigator = createStackNavigator({
   },
 });
 
+const GetHelpScreen_StackNavigator = createStackNavigator({
+  //All the screen from the SettingsScreen will be indexed here
+  Fourth: {
+    screen: GetHelpScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: appTitle,
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#008c99',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
 const WIDTH = Dimensions.get('window').width;
 
 const DrawerConfig = {
@@ -117,6 +134,13 @@ const DrawerNavigator = createDrawerNavigator(
       screen: SettingsScreen_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Settings',
+      },
+    },
+    GetHelpScreen: {
+      //Title
+      screen: GetHelpScreen_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Get Help Now',
       },
     },
   },

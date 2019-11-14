@@ -22,7 +22,7 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={styles.text}>Home</Text>
+          <Text style={styles.text}>Austin is cool!</Text>
         </View>
       </View>
     );
@@ -31,7 +31,6 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
