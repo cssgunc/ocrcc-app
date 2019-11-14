@@ -15,10 +15,12 @@ import MenuDrawer from './components/MenuDrawer'
 import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
 import SettingsScreen from './screens/SettingsSC';
+import GetHelpScreen from './screens/GetHelpScreen';
 import PinPage from './screens/PinPage'
+
 class NavigationDrawerStructure extends Component {
 
-  //Structure for the navigatin Drawer
+  //Structure for the navigation Drawer
   toggleDrawer = () => {
     //Props to open/close the drawer
     this.props.navigationProps.toggleDrawer();
@@ -65,7 +67,7 @@ const HomeScreen_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#008c99',
+        backgroundColor: '#47B8BC',
 
       },
       headerTintColor: '#fff',
@@ -81,7 +83,7 @@ const LinksScreen_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#008c99',
+        backgroundColor: '#47B8BC',
       },
       headerTintColor: '#fff',
     }),
@@ -96,7 +98,22 @@ const SettingsScreen_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#008c99',
+        backgroundColor: '#47B8BC',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const GetHelpScreen_StackNavigator = createStackNavigator({
+  //All the screen from the SettingsScreen will be indexed here
+  Fourth: {
+    screen: GetHelpScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: appTitle,
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#47B8BC',
       },
       headerTintColor: '#fff',
     }),
@@ -143,6 +160,13 @@ const DrawerNavigator = createDrawerNavigator(
       screen: SettingsScreen_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Settings',
+      },
+    },
+    GetHelpScreen: {
+      //Title
+      screen: GetHelpScreen_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Get Help Now',
       },
     },
   },
