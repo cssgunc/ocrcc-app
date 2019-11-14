@@ -19,7 +19,7 @@ import GetHelpScreen from './screens/GetHelpScreen';
 
 class NavigationDrawerStructure extends Component {
 
-  //Structure for the navigatin Drawer
+  //Structure for the navigation Drawer
   toggleDrawer = () => {
     //Props to open/close the drawer
     this.props.navigationProps.toggleDrawer();
@@ -50,7 +50,7 @@ const HomeScreen_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#008c99',
+        backgroundColor: '#47B8BC',
 
       },
       headerTintColor: '#fff',
@@ -66,7 +66,7 @@ const LinksScreen_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#008c99',
+        backgroundColor: '#47B8BC',
       },
       headerTintColor: '#fff',
     }),
@@ -81,7 +81,7 @@ const SettingsScreen_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#008c99',
+        backgroundColor: '#47B8BC',
       },
       headerTintColor: '#fff',
     }),
@@ -96,7 +96,7 @@ const GetHelpScreen_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#008c99',
+        backgroundColor: '#47B8BC',
       },
       headerTintColor: '#fff',
     }),

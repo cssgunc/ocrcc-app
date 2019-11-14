@@ -57,15 +57,15 @@ export default class MenuDrawer extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#008c99'
+        backgroundColor: '#47B8BC'
     },
     topLinks: {
         flex: 1,
-        backgroundColor: '#008c99'
+        backgroundColor: '#47B8BC'
     },
     bottomLinks: {
         flex: 5,
-        backgroundColor: '#008c99',
+        backgroundColor: '#47B8BC',
         paddingTop: 10,
         paddingBottom: 450
     },

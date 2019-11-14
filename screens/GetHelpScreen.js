@@ -44,17 +44,16 @@ export default class GetHelpScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+            <TouchableOpacity onPress={this.dialEmergency} activeOpacity={0.8} style={styles.button}>
                 <View style={styles.NineOneOne}>
-                    <TouchableOpacity onPress={this.dialEmergency} activeOpacity={0.7} style={styles.button} >
                         <Text style={styles.text}>CALL 911</Text>
-                    </TouchableOpacity>
-                </View>
+                 </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.dialHelpLine} activeOpacity={0.8} style={styles.button}>
                 <View style={styles.HelpLine}>
-                    <TouchableOpacity onPress={this.dialHelpLine} activeOpacity={0.7} style={styles.button} >
                         <Text style={styles.text}>CALL THE 24 HOUR CRISIS HOTLINE:       (866) 935-4783 </Text>
-                    </TouchableOpacity>
                 </View>
-
+            </TouchableOpacity>
             </View>
 
         );
@@ -69,17 +68,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
+    flex: 1,
     textAlign: 'center',
     textAlignVertical: 'center',
     fontSize: 50,
     color: 'white',
   },
   NineOneOne: {
+    borderRadius: 5,
     width: Dimensions.get('window').width,
     height: (Dimensions.get('window').height - 80) / 2,
     backgroundColor: '#FF4C4C'
   },
   HelpLine: {
+    borderRadius: 5,
     width: Dimensions.get('window').width,
     height: (Dimensions.get('window').height - 80) / 2,
     backgroundColor: '#47B8BC'
