@@ -15,6 +15,7 @@ import MenuDrawer from './components/MenuDrawer'
 import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
 import SettingsScreen from './screens/SettingsSC';
+import EventsScreen from './screens/EventsScreen';
 class NavigationDrawerStructure extends Component {
 
   //Structure for the navigatin Drawer
@@ -86,6 +87,21 @@ const SettingsScreen_StackNavigator = createStackNavigator({
   },
 });
 
+const EventsScreen_StackNavigator = createStackNavigator({
+  //All the screen from the EventsScreen will be indexed here
+  Fourth: {
+    screen: EventsScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: appTitle,
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#008c99',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
 const WIDTH = Dimensions.get('window').width;
 
 const DrawerConfig = {
@@ -119,6 +135,13 @@ const DrawerNavigator = createDrawerNavigator(
         drawerLabel: 'Settings',
       },
     },
+    EventsScreen: {
+      //Title
+      screen: EventsScreen_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Events',
+      },
+    }
   },
   DrawerConfig
 );
