@@ -22,7 +22,7 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={styles.text}>Austin is cool!</Text>
+          <Text style={styles.text}>Home</Text>
         </View>
       </View>
     );
