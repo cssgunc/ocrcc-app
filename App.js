@@ -15,6 +15,7 @@ import MenuDrawer from './components/MenuDrawer'
 import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
 import SettingsScreen from './screens/SettingsSC';
+import PinPage from './screens/PinPage'
 class NavigationDrawerStructure extends Component {
 
   //Structure for the navigatin Drawer
@@ -39,6 +40,22 @@ class NavigationDrawerStructure extends Component {
 }
 
 let appTitle = ""
+
+const PinPage_StackNavigator = createStackNavigator({
+  //All the screen from the HomeScreen will be indexed here
+  Pin: {
+    screen: PinPage,
+    navigationOptions: ({ navigation }) => ({
+      title: appTitle,
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#008c99',
+
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
 
 const HomeScreen_StackNavigator = createStackNavigator({
   //All the screen from the HomeScreen will be indexed here
@@ -95,9 +112,18 @@ const DrawerConfig = {
   }
 }
 
+// PinPage_StackNavigator
+
 const DrawerNavigator = createDrawerNavigator(
   {
     //Drawer Optons and indexing
+    PinPage: {
+      //Title
+      screen: PinPage_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Pin',
+      },
+    },
     HomeScreen: {
       //Title
       screen: HomeScreen_StackNavigator,
