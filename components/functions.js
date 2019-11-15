@@ -1,6 +1,10 @@
 class Stylings {
+    primary() {
+        return '#47B8BC';
+    }
+
     abc() {
-        alert("Hello World");
+        alert("this works!")
     }
 }
 const styling = new Stylings;

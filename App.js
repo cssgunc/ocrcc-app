@@ -53,7 +53,7 @@ const PinPage_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#008c99',
+        backgroundColor: styling.primary(),
 
       },
       headerTintColor: '#fff',
@@ -81,7 +81,7 @@ const HomeScreen_StackNavigator = createStackNavigator({
         </TouchableOpacity>
       ),
       headerStyle: {
-        backgroundColor: '#47B8BC',
+        backgroundColor: styling.primary(),
 
       },
       headerTintColor: '#fff',
@@ -109,7 +109,7 @@ const LinksScreen_StackNavigator = createStackNavigator({
         </TouchableOpacity>
       ),
       headerStyle: {
-        backgroundColor: '#47B8BC',
+        backgroundColor: styling.primary(),
       },
       headerTintColor: '#fff',
     }),
@@ -136,7 +136,7 @@ const SettingsScreen_StackNavigator = createStackNavigator({
         </TouchableOpacity>
       ),
       headerStyle: {
-        backgroundColor: '#47B8BC',
+        backgroundColor: styling.primary(),
       },
       headerTintColor: '#fff',
     }),
@@ -151,7 +151,7 @@ const GetHelpScreen_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#47B8BC',
+        backgroundColor: styling.primary(),
       },
       headerTintColor: '#fff',
     }),
@@ -166,7 +166,7 @@ const MapScreen_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#008c99',
+        backgroundColor: styling.primary(),
 
       },
       headerTintColor: '#fff',
