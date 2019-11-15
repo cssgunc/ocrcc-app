@@ -16,7 +16,7 @@ import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
 import SettingsScreen from './screens/SettingsSC';
 import PinPage from './screens/PinPage';
-import MapView from './screens/MapScreen'
+import MapScreen from './screens/MapScreen'
 class NavigationDrawerStructure extends Component {
 
   //Structure for the navigatin Drawer
