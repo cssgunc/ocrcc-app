@@ -179,14 +179,12 @@ const DrawerNavigator = createDrawerNavigator(
         drawerLabel: 'Settings',
       },
     },
-<<<<<<< HEAD
     MapScreen: {
       screen: MapScreen_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Map',
       },
-    }
-=======
+    },
     GetHelpScreen: {
       //Title
       screen: GetHelpScreen_StackNavigator,
@@ -194,7 +192,6 @@ const DrawerNavigator = createDrawerNavigator(
         drawerLabel: 'Get Help Now',
       },
     },
->>>>>>> master
   },
   DrawerConfig
 );
