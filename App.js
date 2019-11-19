@@ -29,9 +29,7 @@ import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 const App = () => {
   return (
     <View style={styles.body}>
-        <Calendar
-
-        />
+        <Calendar/>
     </View>
   );
 };
