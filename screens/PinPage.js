@@ -27,7 +27,9 @@ export default class PinPage extends Component<Props> {
     }
   }
   onPress(inputtedPin, clear, pressed) {
-    pin += pressed;
+    if (pressed !== 'DEL') pin += pressed;
+    else pin = pin.slice(0,-1);
+    console.log(pin);
     // clear();
   }
   render() {
