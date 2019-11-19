@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import react in our code.
-import { View, Image, TouchableOpacity, Text, Dimensions } from 'react-native';
+import { View, Image, TouchableOpacity, Text, Dimensions, Button } from 'react-native';
 // import all basic components
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -15,7 +15,9 @@ import MenuDrawer from './components/MenuDrawer'
 import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
 import SettingsScreen from './screens/SettingsSC';
+import styling from './components/functions';
 import GetHelpScreen from './screens/GetHelpScreen';
+import MapScreen from './screens/MapScreen'
 import PinPage from './screens/PinPage'
 
 class NavigationDrawerStructure extends Component {
@@ -51,7 +53,7 @@ const PinPage_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#008c99',
+        backgroundColor: styling.primary(),
 
       },
       headerTintColor: '#fff',
@@ -66,8 +68,20 @@ const HomeScreen_StackNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => styling.abc()}>
+            <Icon
+              name="md-settings"
+              color="#fff"
+              size={32}
+              style={{ paddingRight: 20 }}
+              >
+            </Icon>
+        </TouchableOpacity>
+      ),
       headerStyle: {
-        backgroundColor: '#47B8BC',
+        backgroundColor: styling.primary(),
 
       },
       headerTintColor: '#fff',
@@ -82,8 +96,20 @@ const LinksScreen_StackNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => styling.abc()}>
+            <Icon
+              name="md-settings"
+              color="#fff"
+              size={32}
+              style={{ paddingRight: 20 }}
+              >
+            </Icon>
+        </TouchableOpacity>
+      ),
       headerStyle: {
-        backgroundColor: '#47B8BC',
+        backgroundColor: styling.primary(),
       },
       headerTintColor: '#fff',
     }),
@@ -97,8 +123,20 @@ const SettingsScreen_StackNavigator = createStackNavigator({
     navigationOptions: ({ navigation }) => ({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerRight: () => (
+        <TouchableOpacity
+          onPress={() => styling.abc()}>
+            <Icon
+              name="md-settings"
+              color="#fff"
+              size={32}
+              style={{ paddingRight: 20 }}
+              >
+            </Icon>
+        </TouchableOpacity>
+      ),
       headerStyle: {
-        backgroundColor: '#47B8BC',
+        backgroundColor: styling.primary(),
       },
       headerTintColor: '#fff',
     }),
@@ -113,7 +151,23 @@ const GetHelpScreen_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#47B8BC',
+        backgroundColor: styling.primary(),
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
+const MapScreen_StackNavigator = createStackNavigator({
+  //All the screen from the HomeScreen will be indexed here
+  Pin: {
+    screen: MapScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: appTitle,
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: styling.primary(),
+
       },
       headerTintColor: '#fff',
     }),
@@ -125,7 +179,7 @@ const WIDTH = Dimensions.get('window').width;
 const DrawerConfig = {
   drawerWidth: WIDTH * 0.83,
   contentComponent: ({ navigation }) => {
-    return (<MenuDrawer navigation={navigation}/>)
+    return (<MenuDrawer navigation={navigation} />)
   }
 }
 
@@ -162,6 +216,12 @@ const DrawerNavigator = createDrawerNavigator(
         drawerLabel: 'Settings',
       },
     },
+    MapScreen: {
+      screen: MapScreen_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Map',
+      },
+    },
     GetHelpScreen: {
       //Title
       screen: GetHelpScreen_StackNavigator,
@@ -172,5 +232,6 @@ const DrawerNavigator = createDrawerNavigator(
   },
   DrawerConfig
 );
+
 
 export default createAppContainer(DrawerNavigator);

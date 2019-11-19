@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons'
+import styling from './functions';
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
@@ -47,6 +48,7 @@ export default class MenuDrawer extends React.Component {
                     {this.navLink('HomeScreen', 'Home')}
                     {this.navLink('LinksScreen', 'Links')}
                     {this.navLink('SettingsScreen', 'Settings')}
+                    {this.navLink('MapScreen', 'Map')}
                     {this.navLink('GetHelpScreen', 'Get Help Now')}
                 </View>
             </View>
@@ -57,15 +59,15 @@ export default class MenuDrawer extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#47B8BC'
+        backgroundColor: styling.primary(),
     },
     topLinks: {
         flex: 1,
-        backgroundColor: '#47B8BC'
+        backgroundColor: styling.primary(),
     },
     bottomLinks: {
         flex: 5,
-        backgroundColor: '#47B8BC',
+        backgroundColor: styling.primary(),
         paddingTop: 10,
         paddingBottom: 450
     },
