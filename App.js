@@ -16,7 +16,8 @@ import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
 import SettingsScreen from './screens/SettingsSC';
 import GetHelpScreen from './screens/GetHelpScreen';
-import PinPage from './screens/PinPage'
+import NewsScreen from './screens/NewsScreen';
+import PinPage from './screens/PinPage';
 
 class NavigationDrawerStructure extends Component {
 
@@ -120,6 +121,20 @@ const GetHelpScreen_StackNavigator = createStackNavigator({
   },
 });
 
+const NewsScreen_StackNavigator = createStackNavigator({
+  Fifth: {
+    screen: NewsScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: appTitle,
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#47B8BC',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
 const WIDTH = Dimensions.get('window').width;
 
 const DrawerConfig = {
@@ -167,6 +182,13 @@ const DrawerNavigator = createDrawerNavigator(
       screen: GetHelpScreen_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Get Help Now',
+      },
+    },
+    NewsScreen: {
+      //Title
+      screen: NewsScreen_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'News',
       },
     },
   },

@@ -48,6 +48,7 @@ export default class MenuDrawer extends React.Component {
                     {this.navLink('LinksScreen', 'Links')}
                     {this.navLink('SettingsScreen', 'Settings')}
                     {this.navLink('GetHelpScreen', 'Get Help Now')}
+                    {this.navLink('NewsScreen', 'News')}
                 </View>
             </View>
         );
