@@ -32,7 +32,7 @@ export default class MenuDrawer extends React.Component {
             <View style={styles.container}>
                 <View style={styles.topLinks}>
                     <TouchableOpacity
-                        onPress = {this.close.bind(this)}>
+                        onPress={this.close.bind(this)}>
                         <Icon
                             name="md-close"
                             color="#fff"
@@ -43,10 +43,11 @@ export default class MenuDrawer extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.bottomLinks}>
-                    <Text style={styles.linkTitle}> Pages </Text>
+                    {/* <Text style={styles.linkTitle}> Pages </Text> */}
                     {this.navLink('HomeScreen', 'Home')}
                     {this.navLink('LinksScreen', 'Links')}
                     {this.navLink('SettingsScreen', 'Settings')}
+                    {this.navLink('CallApp', 'Calling')}
                 </View>
             </View>
         );
@@ -82,12 +83,12 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         color: 'white'
     },
-    pageLinks: { 
-        flex: .2,
+    pageLinks: {
+        flex: 1
         // textColor: 'white' 
     },
-    closeIcon: { 
-        paddingLeft: 20, 
-        paddingTop: 20 
+    closeIcon: {
+        paddingLeft: 20,
+        paddingTop: 20
     },
 })

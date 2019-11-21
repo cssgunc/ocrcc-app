@@ -15,6 +15,7 @@ import MenuDrawer from './components/MenuDrawer'
 import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
 import SettingsScreen from './screens/SettingsSC';
+import CallApp from './screens/CallApp'
 class NavigationDrawerStructure extends Component {
 
   //Structure for the navigatin Drawer
@@ -86,12 +87,27 @@ const SettingsScreen_StackNavigator = createStackNavigator({
   },
 });
 
+const CallApp_StackNavigator = createStackNavigator({
+  //All the screen from the SettingsScreen will be indexed here
+  Fourth: {
+    screen: CallApp,
+    navigationOptions: ({ navigation }) => ({
+      title: appTitle,
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: '#008c99',
+      },
+      headerTintColor: '#fff',
+    }),
+  },
+});
+
 const WIDTH = Dimensions.get('window').width;
 
 const DrawerConfig = {
   drawerWidth: WIDTH * 0.83,
   contentComponent: ({ navigation }) => {
-    return (<MenuDrawer navigation={navigation}/>)
+    return (<MenuDrawer navigation={navigation} />)
   }
 }
 
@@ -117,6 +133,13 @@ const DrawerNavigator = createDrawerNavigator(
       screen: SettingsScreen_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Settings',
+      },
+    },
+    CallApp: {
+      //Title
+      screen: CallApp_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Call',
       },
     },
   },
