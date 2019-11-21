@@ -15,8 +15,6 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
-
 export default class SettingsScreen extends React.Component {
   render() {
     return (

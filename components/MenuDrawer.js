@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons'
+import styling from './functions';
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
@@ -43,11 +44,20 @@ export default class MenuDrawer extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.bottomLinks}>
+<<<<<<< HEAD
                     {/* <Text style={styles.linkTitle}> Pages </Text> */}
                     {this.navLink('HomeScreen', 'Home')}
                     {this.navLink('LinksScreen', 'Links')}
                     {this.navLink('SettingsScreen', 'Settings')}
                     {this.navLink('CallApp', 'Calling')}
+=======
+
+                    {this.navLink('HomeScreen', 'Home')}
+                    {this.navLink('LinksScreen', 'Links')}
+                    {this.navLink('SettingsScreen', 'Settings')}
+                    {this.navLink('MapScreen', 'Map')}
+                    {this.navLink('GetHelpScreen', 'Get Help Now')}
+>>>>>>> master
                 </View>
             </View>
         );
@@ -57,15 +67,15 @@ export default class MenuDrawer extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#008c99'
+        backgroundColor: styling.primary(),
     },
     topLinks: {
         flex: 1,
-        backgroundColor: '#008c99'
+        backgroundColor: styling.primary(),
     },
     bottomLinks: {
         flex: 5,
-        backgroundColor: '#008c99',
+        backgroundColor: styling.primary(),
         paddingTop: 10,
         paddingBottom: 450
     },
@@ -83,8 +93,13 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         color: 'white'
     },
+<<<<<<< HEAD
     pageLinks: {
         flex: 1
+=======
+    pageLinks: { 
+        flex: 1,
+>>>>>>> master
         // textColor: 'white' 
     },
     closeIcon: {
