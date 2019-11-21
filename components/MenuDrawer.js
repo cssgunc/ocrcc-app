@@ -30,7 +30,7 @@ export default class MenuDrawer extends React.Component {
             <View style={styles.container}>
                 <View style={styles.topLinks}>
                     <TouchableOpacity
-                        onPress = {this.close.bind(this)}>
+                        onPress={this.close.bind(this)}>
                         <Icon
                             name="md-close"
                             color="#fff"
@@ -85,8 +85,8 @@ const styles = StyleSheet.create({
         flex: 1,
         // textColor: 'white' 
     },
-    closeIcon: { 
-        paddingLeft: 20, 
-        paddingTop: 20 
+    closeIcon: {
+        paddingLeft: 20,
+        paddingTop: 20
     },
 })

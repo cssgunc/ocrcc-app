@@ -102,6 +102,13 @@ const DrawerNavigator = createDrawerNavigator(
         drawerLabel: 'Get Help Now'
       }),
     },
+    CallApp: {
+      //Title
+      screen: CallApp_StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Call',
+      },
+    },
   },
   DrawerConfig
 );
