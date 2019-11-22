@@ -15,15 +15,11 @@ import MenuDrawer from './components/MenuDrawer'
 import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
 import SettingsScreen from './screens/SettingsSC';
-<<<<<<< HEAD
-import CallApp from './screens/CallApp'
-=======
 import styling from './components/functions';
 import GetHelpScreen from './screens/GetHelpScreen';
 import MapScreen from './screens/MapScreen'
 import PinPage from './screens/PinPage'
 
->>>>>>> master
 class NavigationDrawerStructure extends Component {
 
   //Structure for the navigation Drawer
@@ -74,13 +70,13 @@ const HomeScreen_StackNavigator = createStackNavigator({
       headerRight: () => (
         <TouchableOpacity
           onPress={() => styling.abc()}>
-            <Icon
-              name="md-settings"
-              color="#fff"
-              size={32}
-              style={{ paddingRight: 20 }}
-              >
-            </Icon>
+          <Icon
+            name="md-settings"
+            color="#fff"
+            size={32}
+            style={{ paddingRight: 20 }}
+          >
+          </Icon>
         </TouchableOpacity>
       ),
       headerStyle: {
@@ -102,13 +98,13 @@ const LinksScreen_StackNavigator = createStackNavigator({
       headerRight: () => (
         <TouchableOpacity
           onPress={() => styling.abc()}>
-            <Icon
-              name="md-settings"
-              color="#fff"
-              size={32}
-              style={{ paddingRight: 20 }}
-              >
-            </Icon>
+          <Icon
+            name="md-settings"
+            color="#fff"
+            size={32}
+            style={{ paddingRight: 20 }}
+          >
+          </Icon>
         </TouchableOpacity>
       ),
       headerStyle: {
@@ -129,13 +125,13 @@ const SettingsScreen_StackNavigator = createStackNavigator({
       headerRight: () => (
         <TouchableOpacity
           onPress={() => styling.abc()}>
-            <Icon
-              name="md-settings"
-              color="#fff"
-              size={32}
-              style={{ paddingRight: 20 }}
-              >
-            </Icon>
+          <Icon
+            name="md-settings"
+            color="#fff"
+            size={32}
+            style={{ paddingRight: 20 }}
+          >
+          </Icon>
         </TouchableOpacity>
       ),
       headerStyle: {
@@ -171,21 +167,6 @@ const MapScreen_StackNavigator = createStackNavigator({
       headerStyle: {
         backgroundColor: styling.primary(),
 
-      },
-      headerTintColor: '#fff',
-    }),
-  },
-});
-
-const CallApp_StackNavigator = createStackNavigator({
-  //All the screen from the SettingsScreen will be indexed here
-  Fourth: {
-    screen: CallApp,
-    navigationOptions: ({ navigation }) => ({
-      title: appTitle,
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
-      headerStyle: {
-        backgroundColor: '#008c99',
       },
       headerTintColor: '#fff',
     }),
@@ -234,13 +215,6 @@ const DrawerNavigator = createDrawerNavigator(
         drawerLabel: 'Settings',
       },
     },
-<<<<<<< HEAD
-    CallApp: {
-      //Title
-      screen: CallApp_StackNavigator,
-      navigationOptions: {
-        drawerLabel: 'Call',
-=======
     MapScreen: {
       screen: MapScreen_StackNavigator,
       navigationOptions: {
@@ -252,7 +226,6 @@ const DrawerNavigator = createDrawerNavigator(
       screen: GetHelpScreen_StackNavigator,
       navigationOptions: {
         drawerLabel: 'Get Help Now',
->>>>>>> master
       },
     },
   },
