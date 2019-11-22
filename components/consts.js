@@ -1,5 +1,13 @@
 
 module.exports = {
     num: 30,
-    primary: '#47B8BC',
+    current: 'default', 
+    primaryScheme: {
+      primaryColor: '#47B8BC'
+    },
+    secondaryScheme: {
+        primaryColor: '#4267b2'
+    }
+
+    
 } 

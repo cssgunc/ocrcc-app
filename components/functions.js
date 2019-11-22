@@ -1,10 +1,25 @@
+import consts from './consts'
+import { Linking } from 'react-native';
+
 class Stylings {
-    primary() {
-        return '#47B8BC';
+    primary(styleType) {
+        if (styleType == "facebook") {
+            return consts.secondaryScheme.primaryColor;    
+        } else {
+            return consts.primaryScheme.primaryColor;
+        }
+
+    }
+
+    changeStyle(style) {
+        if(style == "facebook") {
+            consts.current = "facebook";
+        }
     }
 
     abc() {
-        alert("this works!")
+        // alert(consts.num)
+        Linking.openURL('http://google.com')
     }
 }
 const styling = new Stylings;

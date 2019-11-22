@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import react in our code.
-import { View, Image, TouchableOpacity, Text, Dimensions, Button } from 'react-native';
+import { View, Image, TouchableOpacity, Text, Dimensions, Button, Linking } from 'react-native';
 // import all basic components
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -70,6 +70,7 @@ const HomeScreen_StackNavigator = createStackNavigator({
       headerRight: () => (
         <TouchableOpacity
           onPress={() => styling.abc()}>
+          
             <Icon
               name="md-settings"
               color="#fff"
