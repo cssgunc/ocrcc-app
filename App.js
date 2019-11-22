@@ -51,7 +51,6 @@ const PinPage_StackNavigator = createStackNavigator({
     screen: PinPage,
     navigationOptions: ({ navigation }) => ({
       title: appTitle,
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: styling.primary(),
 
