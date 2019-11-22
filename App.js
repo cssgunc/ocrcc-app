@@ -141,7 +141,7 @@ const DrawerNavigator = createDrawerNavigator(
       navigationOptions: {
         drawerLabel: 'Events',
       },
-    }
+    },
   },
   DrawerConfig
 );
