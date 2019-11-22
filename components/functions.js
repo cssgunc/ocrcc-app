@@ -18,7 +18,7 @@ class Stylings {
     }
 
     abc() {
-        // alert(consts.num)
+        // need to link to the right website
         Linking.openURL('http://google.com')
     }
 }
