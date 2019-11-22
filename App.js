@@ -106,7 +106,11 @@ const DrawerNavigator = createDrawerNavigator(
       //Title
       screen: CallApp_StackNavigator,
       navigationOptions: {
+<<<<<<< HEAD
         drawerLabel: 'Call',
+=======
+        drawerLabel: 'Get Help Now',
+>>>>>>> adding hotline texting
       },
     },
   },
