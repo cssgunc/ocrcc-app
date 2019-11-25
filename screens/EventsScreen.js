@@ -28,11 +28,11 @@ export default class EventsScreen extends React.Component {
 <ScrollView style={styles.scrollView}>
 
 <View style={styles.container}>
-   <Text style={{fontSize: 40,color:'#008080', fontWeight:'bold'  }}> UPCOMING EVENTS </Text>
+   <Text style={{fontSize: 40,color:'#47B8BC', fontWeight:'bold'  }}>UPCOMING EVENTS </Text>
       </View>
 
       <View style={styles.container}>
-         <Text style={{fontSize: 30,color:'#000000'  }}> November 2019 </Text>
+         <Text style={{fontSize: 30,color:'#000000'  }}>November 2019 </Text>
             </View>
                <Separator/>
 <View style={styles.container}>
@@ -40,11 +40,11 @@ export default class EventsScreen extends React.Component {
 
 
 <View style={styles.container}>
-   <Text style={{fontSize: 25,color:'#008080', fontWeight:'bold'}}>Friday </Text>
+   <Text style={{fontSize: 25,color:'#47B8BC', fontWeight:'bold'}}>Friday</Text>
       </View>
  <View style={styles.container}>
          <View style={styles.CircleShapeView}>
-                <Text style={{fontSize: 30,color:'#ffffff', textAlign:'center', fontWeight:'bold'  }}> 15 </Text>
+                <Text style={{fontSize: 30,color:'#ffffff', textAlign:'center' }}> 15 </Text>
                  </View>
               </View>
 
@@ -53,7 +53,7 @@ export default class EventsScreen extends React.Component {
               </Text>
               <Button
                 title="Circle of Sisters"
-                color="#800080"
+                color='#47B8BC'
                 onPress={() => Alert.alert("Circle of Sisters\n6:00-8:00")}
                />
             </View>
@@ -62,19 +62,17 @@ export default class EventsScreen extends React.Component {
 
 
 <View style={styles.container}>
-   <Text style={{fontSize: 25,color:'#008080', fontWeight:'bold'}}>Saturday </Text>
+   <Text style={{fontSize: 25,color:'#47B8BC', fontWeight:'bold'}}>Saturday</Text>
          </View>
           <View style={styles.container}>
          <View style={styles.CircleShapeView}>
-                <Text style={{fontSize: 30,color:'#ffffff', textAlign:'center', fontWeight:'bold'  }}> 16 </Text>
+                <Text style={{fontSize: 30,color:'#ffffff', textAlign:'center'  }}> 16 </Text>
                  </View>
               </View>
                    <View>
-                <Text style={styles.title}>
-                </Text>
             <Button
              title="How to Talk to Your Child About Sexual Abuse"
-             color="#800080"
+             color='#47B8BC'
              onPress={() => Alert.alert('How to Talk to Your Child About Sexual Abuse 11:00am - 12:00pm')}
               />
                </View>
@@ -83,32 +81,29 @@ export default class EventsScreen extends React.Component {
 
 
 <View style={styles.container}>
-   <Text style={{fontSize: 25,color:'#008080', fontWeight:'bold'}}>Sunday </Text>
+   <Text style={{fontSize: 25,color:'#47B8BC', fontWeight:'bold'}}>Sunday</Text>
       </View>
  <View style={styles.container}>
          <View style={styles.CircleShapeView}>
-                <Text style={{fontSize: 30,color:'#ffffff', textAlign:'center', fontWeight:'bold'  }}> 17 </Text>
+                <Text style={{fontSize: 30,color:'#ffffff', textAlign:'center'  }}> 17 </Text>
                  </View>
               </View>
 
               <Separator/>
               <View>
-                  <Text style={styles.title}>
-                      </Text>
                          <Button
                              title="The Healing Power of Gong"
-                             color="#800080"
-
+                             color='#47B8BC'
                              onPress={() => Alert.alert('The Healing Power of Gong\n2:00pm - 4:00pm')}
                             />
                          </View>
 
 <View style={styles.container}>
-   <Text style={{fontSize: 25,color:'#008080', fontWeight:'bold'}}>Monday </Text>
+   <Text style={{fontSize: 25,color:'#47B8BC', fontWeight:'bold'}}>Monday</Text>
       </View>
  <View style={styles.container}>
          <View style={styles.CircleShapeView}>
-                <Text style={{fontSize: 30,color:'#ffffff', textAlign:'center', fontWeight:'bold'  }}> 18 </Text>
+                <Text style={{fontSize: 30,color:'#ffffff', textAlign:'center'  }}> 18 </Text>
                  </View>
               </View>
 
@@ -118,7 +113,7 @@ export default class EventsScreen extends React.Component {
                       </Text>
                          <Button
                              title="Drop in Crisis Counselling"
-                             color="#800080"
+                             color='#47B8BC'
 
                              onPress={() => Alert.alert('Drop in Crisis Counselling\n12:30pm - 4:00pm')}
                             />
@@ -130,7 +125,7 @@ export default class EventsScreen extends React.Component {
         </Text>
              <Button
              title="CSA Support Group"
-             color="#800080"
+             color='#47B8BC'
             onPress={() => Alert.alert('CSA Support Group\n6:30pm - 8:00pm')}
           />
     </View>
@@ -151,6 +146,7 @@ const styles = StyleSheet.create({
     title: {
       textAlign: 'center',
       marginVertical: 8,
+      color: '#000000'
     },
     fixToText: {
       flexDirection: 'row',
@@ -165,7 +161,7 @@ const styles = StyleSheet.create({
       width: 50,
       height: 50,
       borderRadius: 50/2,
-      backgroundColor: '#008080',
+      backgroundColor: '#47B8BC',
       flexDirection:'row',
   },
     eventButton: {

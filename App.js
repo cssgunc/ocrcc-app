@@ -95,7 +95,7 @@ const EventsScreen_StackNavigator = createStackNavigator({
       title: appTitle,
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerStyle: {
-        backgroundColor: '#008c99',
+        backgroundColor: '#47B8BC',
       },
       headerTintColor: '#fff',
     }),
