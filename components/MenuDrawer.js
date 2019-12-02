@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
         textAlign: 'left',
         color: 'white'
     },
-    pageLinks: { 
+    pageLinks: {
         flex: 1,
         // textColor: 'white' 
     },
