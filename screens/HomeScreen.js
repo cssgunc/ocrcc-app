@@ -31,7 +31,7 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <TouchableHighlight View style={[styles.fullWidthButton, 
           { backgroundColor: styling.white()}]} 
-          onPress={() => this.props.navigation.navigate('LinksScreen')}>
+          onPress={() => this.props.navigation.navigate('ResourcesScreen')}>
           <Text style={styles.fullWidthButtonText}>RESOURCES</Text>
         </TouchableHighlight>
         <TouchableHighlight style={[styles.fullWidthButton, 
@@ -74,8 +74,4 @@ const styles = StyleSheet.create({
     fontSize:24,
     color: 'black',
   },
-  arrowIcon: {
-    paddingLeft: 20,
-    paddingTop: 20,
-  }
 });

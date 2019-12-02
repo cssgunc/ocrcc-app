@@ -19,6 +19,8 @@ import SettingsScreen from './screens/SettingsScreen';
 import styling from './components/functions';
 import GetHelpScreen from './screens/GetHelpScreen';
 import MapScreen from './screens/MapScreen'
+import ResourcesScreen from './screens/ResourcesScreen';
+import SupportWorkshops from './screens/SupportWorkshops';
 
 class NavigationDrawerStructure extends Component {
 
@@ -92,6 +94,30 @@ const DrawerNavigator = createDrawerNavigator(
     },
     GetHelpScreen: {
       screen: GetHelpScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: "Get Help",
+        headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+        headerStyle: {
+          backgroundColor: styling.primary(),
+        },
+        headerTintColor: '#fff',
+        drawerLabel: 'Get Help Now'
+      }),
+    },
+    ResourcesScreen: {
+      screen: ResourcesScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: "Get Help",
+        headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+        headerStyle: {
+          backgroundColor: styling.primary(),
+        },
+        headerTintColor: '#fff',
+        drawerLabel: 'Get Help Now'
+      }),
+    },
+    SupportWorkshops: {
+      screen: SupportWorkshops,
       navigationOptions: ({ navigation }) => ({
         title: "Get Help",
         headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,

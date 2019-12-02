@@ -46,6 +46,8 @@ export default class MenuDrawer extends React.Component {
                     {this.navLink('SettingsScreen', 'Settings')}
                     {this.navLink('MapScreen', 'Map')}
                     {this.navLink('GetHelpScreen', 'Get Help Now')}
+                    {this.navLink('ResourcesScreen', 'Resources')}
+                    {this.navLink('SupportWorkshops', 'Support Groups + Workshops')}
                 </View>
             </View>
         );
@@ -70,14 +72,13 @@ const styles = StyleSheet.create({
     linkTitle: {
         fontSize: 24,
         color: 'white',
-        padding: 6,
+        flex: 1
     },
     link: {
         flex: 1,
         fontSize: 20,
-        padding: 6,
         paddingLeft: 20,
-        margin: 5,
+        margin: 1,
         textAlign: 'left',
         color: 'white'
     },
@@ -87,6 +88,7 @@ const styles = StyleSheet.create({
     },
     closeIcon: {
         paddingLeft: 20,
-        paddingTop: 20
+        paddingTop: 10,
+        margin: 1,
     },
 })
