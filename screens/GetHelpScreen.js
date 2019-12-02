@@ -63,12 +63,14 @@ export default class GetHelpScreen extends React.Component {
         </TouchableOpacity>
         <TouchableOpacity onPress={this.dialHelpLine} activeOpacity={0.8} style={styles.button}>
           <View style={styles.HelpLine}>
-            <Text style={styles.text}>CALL THE 24 HOUR CRISIS HOTLINE:       (866) 935-4783 </Text>
+            <Text style={styles.text}>CALL OUR 24 HOUR HELPLINE:</Text>
+            <Text style={[styles.text, styles.phoneNum]}>(866) 935-4783</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={this.textMessage} activeOpacity={0.8} style={styles.button}>
           <View style={styles.Message}>
-            <Text style={styles.text}>Message us!</Text>
+            <Text style={styles.text}>TEXT OUR 24 HOUR HELPLINE:</Text>
+            <Text style={[styles.text, styles.phoneNum]}>(919) 504-5211</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -90,21 +92,27 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     fontSize: 40,
     color: 'white',
+    fontWeight: "bold",
+  },
+  phoneNum: {
+    // flex: 1,
+    // textAlign: 'center',
+    // textAlignVertical: 'center',
+    marginTop: 0,
+    fontSize: 30,
+    // color: 'white',
   },
   NineOneOne: {
-    borderRadius: 5,
     width: Dimensions.get('window').width,
     height: (Dimensions.get('window').height - 80) / 3,
     backgroundColor: '#FF4C4C'
   },
   HelpLine: {
-    borderRadius: 5,
     width: Dimensions.get('window').width,
     height: (Dimensions.get('window').height - 80) / 3,
     backgroundColor: '#47B8BC'
   },
   Message: {
-    borderRadius: 5,
     width: Dimensions.get('window').width,
     height: (Dimensions.get('window').height - 80) / 3,
     backgroundColor: '#7fcdcd'
