@@ -32,7 +32,7 @@ export default class HomeScreen extends React.Component {
     this.methods = {
       success: function() {
         // props.navigation.replace("HomeScreen");
-        props.navigation.replace("DrawerNavigator", {}, NavigationActions.navigate({ routeName: 'LinksScreen' }));
+        props.navigation.replace("HomeScreen");
       }
     }
   }

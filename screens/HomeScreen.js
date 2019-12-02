@@ -14,10 +14,13 @@ import {
   View,
   Text,
   StatusBar,
-  Button
+  Button,
+  TouchableHighlight,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons'
 import styling from '../components/functions'
 import { NavigationActions } from 'react-navigation';
+import LinksScreen from './LinksScreen';
 var Consts = require('../components/consts.js');
 
 var unlocked = false;
@@ -26,9 +29,26 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={styles.text}>Home</Text>
-        </View>
+        <TouchableHighlight View style={[styles.fullWidthButton, 
+          { backgroundColor: styling.white()}]} 
+          onPress={() => this.props.navigation.navigate('LinksScreen')}>
+          <Text style={styles.fullWidthButtonText}>RESOURCES</Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={[styles.fullWidthButton, 
+          { backgroundColor: styling.grey()}]} 
+          onPress={() => this.props.navigation.navigate('GetHelpScreen')}>
+          <Text style={styles.fullWidthButtonText}>SERVICES</Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={[styles.fullWidthButton, 
+          { backgroundColor: styling.white()}]} 
+          onPress={() => this.props.navigation.navigate('MapScreen')}>
+          <Text style={styles.fullWidthButtonText}>FIND US</Text>
+        </TouchableHighlight>
+        <TouchableHighlight style={[styles.fullWidthButton, 
+          { backgroundColor: styling.grey()}]} 
+          onPress={() => this.props.navigation.navigate('SettingsScreen')}>
+          <Text style={styles.fullWidthButtonText}>SETTINGS</Text>
+        </TouchableHighlight>
       </View>
     );
   }
@@ -37,18 +57,25 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   text: {
     fontSize: Consts.num,
   },
   headerStyle: {
-    // bottom: auto,
-    // boxSizing: border-box,
-    // justifyContent: "flex-start",
-    // alignItems: "flex-start"
     alignContent: "flex-start"
+  },
+  fullWidthButton: {
+    height:80,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingLeft: 20,
+  },
+  fullWidthButtonText: {
+    fontSize:24,
+    color: 'black',
+  },
+  arrowIcon: {
+    paddingLeft: 20,
+    paddingTop: 20,
   }
 });

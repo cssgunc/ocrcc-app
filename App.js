@@ -57,7 +57,7 @@ const DrawerNavigator = createDrawerNavigator(
     LinksScreen: {
       screen: LinksScreen,
       navigationOptions: ({ navigation }) => ({
-        title: appTitle,
+        title: "Resources",
         headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
         headerStyle: {
           backgroundColor: styling.primary(),
@@ -69,7 +69,7 @@ const DrawerNavigator = createDrawerNavigator(
     SettingsScreen: {
       screen: SettingsScreen,
       navigationOptions: ({ navigation }) => ({
-        title: appTitle,
+        title: "Settings",
         headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
         headerStyle: {
           backgroundColor: styling.primary(),
@@ -81,7 +81,7 @@ const DrawerNavigator = createDrawerNavigator(
     MapScreen: {
       screen: MapScreen,
       navigationOptions: ({ navigation }) => ({
-        title: appTitle,
+        title: "Find Us",
         headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
         headerStyle: {
           backgroundColor: styling.primary(),
@@ -93,7 +93,7 @@ const DrawerNavigator = createDrawerNavigator(
     GetHelpScreen: {
       screen: GetHelpScreen,
       navigationOptions: ({ navigation }) => ({
-        title: appTitle,
+        title: "Get Help",
         headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
         headerStyle: {
           backgroundColor: styling.primary(),
@@ -121,10 +121,7 @@ const RootNavigator = createStackNavigator(
     HomeScreen: {
       screen: HomeScreen,
       navigationOptions: ({ navigation }) => ({
-        title: appTitle,
-        headerLeft: <NavigationDrawerStructure navigationProps={navigation} 
-          ref={navigatorRef => {
-          NavigationService.setTopLevelNavigator(navigatorRef); }}/>,
+        title: "Home",
         headerStyle: {
           backgroundColor: styling.primary(),
         },
