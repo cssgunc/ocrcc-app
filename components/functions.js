@@ -3,6 +3,14 @@ class Stylings {
         return '#47B8BC';
     }
 
+    white() {
+        return '#fff';
+    }
+
+    grey() {
+        return '#eeeeee';
+    }
+
     abc() {
         alert("this works!")
     }
