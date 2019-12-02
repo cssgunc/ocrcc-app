@@ -11,9 +11,6 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons'
 import styling from './functions';
 
-const WIDTH = Dimensions.get('window').width;
-const HEIGHT = Dimensions.get('window').height;
-
 export default class MenuDrawer extends React.Component {
 
     navLink(nav, text) {
@@ -44,7 +41,6 @@ export default class MenuDrawer extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.bottomLinks}>
-
                     {this.navLink('HomeScreen', 'Home')}
                     {this.navLink('LinksScreen', 'Links')}
                     {this.navLink('SettingsScreen', 'Settings')}
@@ -69,7 +65,7 @@ const styles = StyleSheet.create({
         flex: 5,
         backgroundColor: styling.primary(),
         paddingTop: 10,
-        paddingBottom: 450
+        paddingBottom: 300
     },
     linkTitle: {
         fontSize: 24,

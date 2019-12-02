@@ -12,19 +12,17 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import MenuDrawer from './components/MenuDrawer'
 
+import PinScreen from './screens/PinScreen';
 import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
-import SettingsScreen from './screens/SettingsSC';
+import SettingsScreen from './screens/SettingsScreen';
 import styling from './components/functions';
 import GetHelpScreen from './screens/GetHelpScreen';
 import MapScreen from './screens/MapScreen'
-import PinPage from './screens/PinPage'
 
 class NavigationDrawerStructure extends Component {
 
-  //Structure for the navigation Drawer
   toggleDrawer = () => {
-    //Props to open/close the drawer
     this.props.navigationProps.toggleDrawer();
   };
   render() {
@@ -45,134 +43,6 @@ class NavigationDrawerStructure extends Component {
 
 let appTitle = ""
 
-const PinPage_StackNavigator = createStackNavigator({
-  //All the screen from the HomeScreen will be indexed here
-  Pin: {
-    screen: PinPage,
-    navigationOptions: ({ navigation }) => ({
-      title: appTitle,
-      headerStyle: {
-        backgroundColor: styling.primary(),
-
-      },
-      headerTintColor: '#fff',
-    }),
-  },
-});
-
-const HomeScreen_StackNavigator = createStackNavigator({
-  //All the screen from the HomeScreen will be indexed here
-  First: {
-    screen: HomeScreen,
-    navigationOptions: ({ navigation }) => ({
-      title: appTitle,
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
-      headerRight: () => (
-        <TouchableOpacity
-          onPress={() => styling.abc()}>
-            <Icon
-              name="md-settings"
-              color="#fff"
-              size={32}
-              style={{ paddingRight: 20 }}
-              >
-            </Icon>
-        </TouchableOpacity>
-      ),
-      headerStyle: {
-        backgroundColor: styling.primary(),
-
-      },
-      headerTintColor: '#fff',
-    }),
-  },
-});
-
-const LinksScreen_StackNavigator = createStackNavigator({
-  //All the screen from the LinksScreen will be indexed here
-  Second: {
-    screen: LinksScreen,
-    navigationOptions: ({ navigation }) => ({
-      title: appTitle,
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
-      headerRight: () => (
-        <TouchableOpacity
-          onPress={() => styling.abc()}>
-            <Icon
-              name="md-settings"
-              color="#fff"
-              size={32}
-              style={{ paddingRight: 20 }}
-              >
-            </Icon>
-        </TouchableOpacity>
-      ),
-      headerStyle: {
-        backgroundColor: styling.primary(),
-      },
-      headerTintColor: '#fff',
-    }),
-  },
-});
-
-const SettingsScreen_StackNavigator = createStackNavigator({
-  //All the screen from the SettingsScreen will be indexed here
-  Third: {
-    screen: SettingsScreen,
-    navigationOptions: ({ navigation }) => ({
-      title: appTitle,
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
-      headerRight: () => (
-        <TouchableOpacity
-          onPress={() => styling.abc()}>
-            <Icon
-              name="md-settings"
-              color="#fff"
-              size={32}
-              style={{ paddingRight: 20 }}
-              >
-            </Icon>
-        </TouchableOpacity>
-      ),
-      headerStyle: {
-        backgroundColor: styling.primary(),
-      },
-      headerTintColor: '#fff',
-    }),
-  },
-});
-
-const GetHelpScreen_StackNavigator = createStackNavigator({
-  //All the screen from the SettingsScreen will be indexed here
-  Fourth: {
-    screen: GetHelpScreen,
-    navigationOptions: ({ navigation }) => ({
-      title: appTitle,
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
-      headerStyle: {
-        backgroundColor: styling.primary(),
-      },
-      headerTintColor: '#fff',
-    }),
-  },
-});
-
-const MapScreen_StackNavigator = createStackNavigator({
-  //All the screen from the HomeScreen will be indexed here
-  Pin: {
-    screen: MapScreen,
-    navigationOptions: ({ navigation }) => ({
-      title: appTitle,
-      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
-      headerStyle: {
-        backgroundColor: styling.primary(),
-
-      },
-      headerTintColor: '#fff',
-    }),
-  },
-});
-
 const WIDTH = Dimensions.get('window').width;
 
 const DrawerConfig = {
@@ -182,55 +52,98 @@ const DrawerConfig = {
   }
 }
 
-// PinPage_StackNavigator
-
 const DrawerNavigator = createDrawerNavigator(
   {
-    //Drawer Optons and indexing
-    PinPage: {
-      //Title
-      screen: PinPage_StackNavigator,
-      navigationOptions: {
-        drawerLabel: 'Pin',
-      },
-    },
-    HomeScreen: {
-      //Title
-      screen: HomeScreen_StackNavigator,
-      navigationOptions: {
-        drawerLabel: 'Home',
-      },
-    },
     LinksScreen: {
-      //Title
-      screen: LinksScreen_StackNavigator,
-      navigationOptions: {
-        drawerLabel: 'Links',
-      },
+      screen: LinksScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: appTitle,
+        headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+        headerStyle: {
+          backgroundColor: styling.primary(),
+        },
+        headerTintColor: '#fff',
+        drawerLabel: 'Links'
+      }),
     },
     SettingsScreen: {
-      //Title
-      screen: SettingsScreen_StackNavigator,
-      navigationOptions: {
-        drawerLabel: 'Settings',
-      },
+      screen: SettingsScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: appTitle,
+        headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+        headerStyle: {
+          backgroundColor: styling.primary(),
+        },
+        headerTintColor: '#fff',
+        drawerLabel: 'Settings'
+      }),
     },
     MapScreen: {
-      screen: MapScreen_StackNavigator,
-      navigationOptions: {
-        drawerLabel: 'Map',
-      },
+      screen: MapScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: appTitle,
+        headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+        headerStyle: {
+          backgroundColor: styling.primary(),
+        },
+        headerTintColor: '#fff',
+        drawerLabel: 'Map'
+      }),
     },
     GetHelpScreen: {
-      //Title
-      screen: GetHelpScreen_StackNavigator,
-      navigationOptions: {
-        drawerLabel: 'Get Help Now',
-      },
+      screen: GetHelpScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: appTitle,
+        headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+        headerStyle: {
+          backgroundColor: styling.primary(),
+        },
+        headerTintColor: '#fff',
+        drawerLabel: 'Get Help Now'
+      }),
     },
   },
   DrawerConfig
 );
 
+const RootNavigator = createStackNavigator(
+  {
+    PinScreen: {
+      screen: PinScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: appTitle,
+        headerStyle: {
+          backgroundColor: styling.primary(),
+        },
+        headerTintColor: '#fff',
+      }),
+    },
+    HomeScreen: {
+      screen: HomeScreen,
+      navigationOptions: ({ navigation }) => ({
+        title: appTitle,
+        headerLeft: <NavigationDrawerStructure navigationProps={navigation} 
+          ref={navigatorRef => {
+          NavigationService.setTopLevelNavigator(navigatorRef); }}/>,
+        headerStyle: {
+          backgroundColor: styling.primary(),
+        },
+        headerTintColor: '#fff',
+      }),
+    },
+    DrawerNavigator: {
+      screen: DrawerNavigator,
+      navigationOptions: ({ navigation }) => ({
+        title: appTitle,
+        headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+        headerStyle: {
+          backgroundColor: styling.primary(),
+        },
+        headerTintColor: '#fff',
+      }),
+    }
 
-export default createAppContainer(DrawerNavigator);
+  }
+)
+
+export default createAppContainer(RootNavigator);
