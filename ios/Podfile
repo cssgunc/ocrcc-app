@@ -29,6 +29,8 @@ target 'OCRCCApp' do
 
   pod 'react-native-maps', :path => '../node_modules/react-native-maps'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
   target 'OCRCCAppTests' do
     inherit! :search_paths
     # Pods for testing

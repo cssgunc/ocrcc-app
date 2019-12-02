@@ -15,11 +15,12 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import PINCode from '@haskkor/react-native-pincode'
 export default class SettingsScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Settings</Text>
+        <PINCode status={'choose'}/>
       </View>
     );
   }

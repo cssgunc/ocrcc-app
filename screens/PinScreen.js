@@ -16,21 +16,39 @@ import {
   StatusBar,
   Button
 } from 'react-native';
+import {hasUserSetPinCode} from '@haskkor/react-native-pincode'; 
+import PINCode from '@haskkor/react-native-pincode'
 import styling from '../components/functions'
 import { NavigationActions } from 'react-navigation';
 var Consts = require('../components/consts.js');
-
-var unlocked = false;
+// import Consts from '../components/consts'
 
 export default class HomeScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pinEntered: false,
+    };
+    this.methods = {
+      success: function() {
+        // props.navigation.replace("HomeScreen");
+        props.navigation.replace("DrawerNavigator", {}, NavigationActions.navigate({ routeName: 'LinksScreen' }));
+      }
+    }
+  }
   render() {
-    return (
-      <View style={styles.container}>
+    if(hasUserSetPinCode()) {
+      return (
+        <View style={styles.container}>
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Text style={styles.text}>Home</Text>
+          <PINCode 
+            status={'enter'}
+            finishProcess={this.methods.success}/>
         </View>
-      </View>
-    );
+        </View>
+      )
+    };
+    this.props.navigation.navigate("HomeScreen");
   }
 };
 
