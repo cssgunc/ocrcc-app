@@ -8,6 +8,7 @@
 
 import React, { Fragment } from 'react';
 import {
+  ActivityIndicator,
   SafeAreaView,
   StyleSheet,
   ScrollView,
@@ -16,28 +17,39 @@ import {
   StatusBar,
   Button
 } from 'react-native';
-import {hasUserSetPinCode} from '@haskkor/react-native-pincode'; 
+import {hasUserSetPinCode,deleteUserPinCode} from '@haskkor/react-native-pincode'; 
 import PINCode from '@haskkor/react-native-pincode'
 import styling from '../components/functions'
 import { NavigationActions } from 'react-navigation';
 var Consts = require('../components/consts.js');
-// import Consts from '../components/consts'
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       pinEntered: false,
+      isLoading: true,
+      hasPin: true,
     };
     this.methods = {
       success: function() {
-        // props.navigation.replace("HomeScreen");
         props.navigation.replace("HomeScreen");
       }
     }
   }
+  componentDidMount() {
+    hasUserSetPinCode()
+      .then((result) => {
+        this.setState({
+          isLoading: false,
+          hasPin: result,
+        }, function(){
+
+        });
+      });
+  }
   render() {
-    if(hasUserSetPinCode()) {
+    if(!this.state.isLoading && this.state.hasPin) {
       return (
         <View style={styles.container}>
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -47,8 +59,19 @@ export default class HomeScreen extends React.Component {
         </View>
         </View>
       )
-    };
-    this.props.navigation.navigate("HomeScreen");
+    }
+    else if(!this.state.isLoading && !this.state.hasPin) {
+      return this.props.navigation.navigate("HomeScreen");
+    }
+    else {
+      return(
+        <View style={styles.container}>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <ActivityIndicator/>
+          </View>
+        </View>
+      )
+    }
   }
 };
 
